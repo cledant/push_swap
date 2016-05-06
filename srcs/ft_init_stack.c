@@ -1,37 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_args.c                                    :+:      :+:    :+:   */
+/*   ft_init_stack.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/06 10:25:27 by cledant           #+#    #+#             */
-/*   Updated: 2016/05/06 13:51:18 by cledant          ###   ########.fr       */
+/*   Created: 2016/05/06 12:26:45 by cledant           #+#    #+#             */
+/*   Updated: 2016/05/06 13:20:36 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		ft_check_args(int argc, char **argv)
+int		*ft_init_stack(int argc, char **argv)
 {
+	int		*stack;
 	int		i;
 
-	i = 1;
-	if (argc <= 1)
-		return (-1);
-	while (i < argc)
+	i = 0;
+	if ((stack = (int *)malloc((argc - 1) * sizeof(int))) == NULL)
+		return (NULL);
+	ft_bzero(stack, (argc - 1) * sizeof(int));
+	while (i < argc - 1)
 	{
-		if (ft_can_be_atoi(argv[i]) == 0)
-		{
-//			ft_putendl("ICI_1");
-			return (-1);
-		}
-		if (ft_is_not_int(argv[i]) == 1)
-		{
-//			ft_putendl("ICI_2");
-			return (-1);
-		}
+		stack[argc - 2 - i] = ft_atoi_2(argv[i + 1]);
 		i++;
 	}
-	return (1);
+	return (stack);
 }

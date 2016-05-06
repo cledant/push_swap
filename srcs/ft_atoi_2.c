@@ -6,7 +6,7 @@
 /*   By: cledant <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/24 08:27:12 by cledant           #+#    #+#             */
-/*   Updated: 2016/05/06 11:10:34 by cledant          ###   ########.fr       */
+/*   Updated: 2016/05/06 13:59:47 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static size_t			ft_strlen_digit(const char *str)
 }
 
 static long long int	ft_internal_atoi(const char *s, int count,
-							int s_len, int res)
+							int s_len, long long int res)
 {
 	while (count < s_len)
 	{
@@ -83,7 +83,7 @@ int						ft_atoi_2(const char *str)
 
 	counter = 0;
 	result = 0;
-	while (*str == ft_isspace(*str) || (*str >= 9 && *str <= 13))
+	while (ft_isspace(*str) == 1)
 		str++;
 	str_len = ft_strlen_digit(str);
 	str = str + str_len - 1;

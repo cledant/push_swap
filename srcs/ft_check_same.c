@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_args.c                                    :+:      :+:    :+:   */
+/*   ft_check_same.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/06 10:25:27 by cledant           #+#    #+#             */
-/*   Updated: 2016/05/06 13:51:18 by cledant          ###   ########.fr       */
+/*   Created: 2016/05/06 12:51:32 by cledant           #+#    #+#             */
+/*   Updated: 2016/05/06 13:01:43 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		ft_check_args(int argc, char **argv)
+int		ft_check_same(int *stack, int len)
 {
 	int		i;
+	int		j;
 
-	i = 1;
-	if (argc <= 1)
-		return (-1);
-	while (i < argc)
+	i = 0;
+	j = 0;
+	while(i < len)
 	{
-		if (ft_can_be_atoi(argv[i]) == 0)
+		while (j < len)
 		{
-//			ft_putendl("ICI_1");
-			return (-1);
+			if (i != j && stack[i] == stack[j])
+				return(-1);
+			j++;
 		}
-		if (ft_is_not_int(argv[i]) == 1)
-		{
-//			ft_putendl("ICI_2");
-			return (-1);
-		}
+		j = 0;
 		i++;
 	}
 	return (1);

@@ -1,37 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_args.c                                    :+:      :+:    :+:   */
+/*   ft_can_be_atoi.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/06 10:25:27 by cledant           #+#    #+#             */
-/*   Updated: 2016/05/06 13:51:18 by cledant          ###   ########.fr       */
+/*   Created: 2015/12/15 18:05:15 by cledant           #+#    #+#             */
+/*   Updated: 2016/05/06 12:06:58 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		ft_check_args(int argc, char **argv)
+static size_t	ft_number_len(char *c)
 {
-	int		i;
+	size_t	i;
 
-	i = 1;
-	if (argc <= 1)
-		return (-1);
-	while (i < argc)
+	i = 0;
+	while (*c != '\0' && ft_isdigit(*c) == 1)
 	{
-		if (ft_can_be_atoi(argv[i]) == 0)
-		{
-//			ft_putendl("ICI_1");
-			return (-1);
-		}
-		if (ft_is_not_int(argv[i]) == 1)
-		{
-//			ft_putendl("ICI_2");
-			return (-1);
-		}
 		i++;
+		c++;
 	}
-	return (1);
+	return (i);
+}
+
+size_t			ft_can_be_atoi_len(char *c)
+{
+	while (ft_isspace(*c) == 1)
+		c++;
+	if (*c == '+' || *c == '-')
+	{
+		c++;
+		if (*c >= '0' && *c <= '9')
+			return (ft_number_len(c));
+		else
+			return (0);
+	}
+	else if (*c >= '0' && *c <= '9')
+		return (ft_number_len(c));
+	else
+		return (0);
 }
