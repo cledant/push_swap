@@ -12,18 +12,18 @@
 
 #include "push_swap.h"
 
-int		ft_check_same(int *stack, int len)
+int		ft_check_same(t_stack *stack)
 {
 	int		i;
 	int		j;
 
 	i = 0;
 	j = 0;
-	while(i < len)
+	while(i < stack->size)
 	{
-		while (j < len)
+		while (j < stack->size)
 		{
-			if (i != j && stack[i] == stack[j])
+			if (i != j && stack->array[i] == stack->array[j])
 				return(-1);
 			j++;
 		}

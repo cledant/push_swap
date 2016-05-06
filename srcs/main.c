@@ -15,7 +15,7 @@
 int	 main(int argc, char **argv)
 {
 	int		check;
-	int		*stack_a;
+	t_stack		*stack_a;
 	int		i;
 
 	i = argc - 2;
@@ -24,12 +24,13 @@ int	 main(int argc, char **argv)
 		ft_putendl_fd("Error 1", 2);
 		return (-1);
 	}
-	if ((stack_a = ft_init_stack(argc, argv)) == NULL)
+	if ((stack_a = ft_stack_new(argc - 1)) == NULL)
 	{
 		ft_putendl_fd("Error 2", 2);
 		return (-1);
 	}
-	if (ft_check_same(stack_a, argc - 1) == -1)
+	ft_stack_fill_arg(stack_a, argc, argv);
+	if (ft_check_same(stack_a) == -1)
 	{
 		free(stack_a);
 		ft_putendl_fd("Error 3", 2);
@@ -37,9 +38,10 @@ int	 main(int argc, char **argv)
 	}
 	while (i >= 0)
 	{
-		ft_putnbr(stack_a[i]);
+		ft_putnbr(stack_a->array[i]);
 		ft_putstr(" ");
 		i--;
 	}
+	ft_stack_destroy(&stack_a);
 	return (0);
 }

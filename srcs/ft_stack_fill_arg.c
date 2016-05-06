@@ -12,19 +12,15 @@
 
 #include "push_swap.h"
 
-int		*ft_init_stack(int argc, char **argv)
+void		ft_stack_fill_arg(t_stack *stack, int argc, char **argv)
 {
-	int		*stack;
 	int		i;
 
 	i = 0;
-	if ((stack = (int *)malloc((argc - 1) * sizeof(int))) == NULL)
-		return (NULL);
-	ft_bzero(stack, (argc - 1) * sizeof(int));
 	while (i < argc - 1)
 	{
-		stack[argc - 2 - i] = ft_atoi_2(argv[i + 1]);
+		stack->array[argc - 2 - i] = ft_atoi_2(argv[i + 1]);
+		stack->filled[argc - 2 - i] = 1;
 		i++;
 	}
-	return (stack);
 }

@@ -15,11 +15,20 @@
 
 # include "libft.h"
 
+typedef struct	s_stack
+{
+	int	*array;
+	int	*filled;
+	int	size;
+}		t_stack;
+
 int		ft_check_args(int argc, char **argv);
-int		*ft_init_stack(int argc, char **argv);
+t_stack		*ft_stack_new(int len);
+void		ft_stack_destroy(t_stack **stack);
+void		ft_stack_fill_arg(t_stack *stack, int argc, char **argv);
 int		ft_atoi_2(const char *str);
 int		ft_is_not_int(char *str);
 size_t	ft_can_be_atoi_len(char *c);
-int		ft_check_same(int *stack, int len);
+int		ft_check_same(t_stack *stack);
 
 #endif
