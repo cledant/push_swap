@@ -16,15 +16,19 @@ int	 main(int argc, char **argv)
 {
 	int		check;
 	t_stack		*stack_a;
-	int		i;
+	t_stack		*stack_b;
 
-	i = argc - 2;
 	if ((check = ft_check_args(argc, argv)) == -1)
 	{
 		ft_putendl_fd("Error 1", 2);
 		return (-1);
 	}
 	if ((stack_a = ft_stack_new(argc - 1)) == NULL)
+	{
+		ft_putendl_fd("Error 2", 2);
+		return (-1);
+	}
+	if ((stack_b = ft_stack_new(argc - 1)) == NULL)
 	{
 		ft_putendl_fd("Error 2", 2);
 		return (-1);
@@ -36,12 +40,10 @@ int	 main(int argc, char **argv)
 		ft_putendl_fd("Error 3", 2);
 		return (-1);
 	}
-	while (i >= 0)
-	{
-		ft_putnbr(stack_a->array[i]);
-		ft_putstr(" ");
-		i--;
-	}
+	ft_stack_rotate(stack_a);
+	ft_stack_rotate(stack_a);
+	ft_stack_display(stack_a);
 	ft_stack_destroy(&stack_a);
+	ft_stack_destroy(&stack_b);
 	return (0);
 }

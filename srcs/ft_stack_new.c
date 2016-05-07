@@ -18,6 +18,7 @@ t_stack		*ft_stack_new(int len)
 		return (NULL);
 	}
 	new->size = len;
+	new->in = 0;
 	ft_bzero(new->array, sizeof(int) * len);
 	ft_bzero(new->filled, sizeof(int) * len);
 	return (new);

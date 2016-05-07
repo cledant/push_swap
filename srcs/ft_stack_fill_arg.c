@@ -21,6 +21,7 @@ void		ft_stack_fill_arg(t_stack *stack, int argc, char **argv)
 	{
 		stack->array[argc - 2 - i] = ft_atoi_2(argv[i + 1]);
 		stack->filled[argc - 2 - i] = 1;
+		stack->in += 1;
 		i++;
 	}
 }
