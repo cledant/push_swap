@@ -29,6 +29,7 @@ void		ft_stack_destroy(t_stack **stack);
 void		ft_stack_fill_arg(t_stack *stack, int argc, char **argv);
 void		ft_stack_display(t_stack *stack);
 void		ft_stack_rotate(t_stack *stack);
+void		ft_stack_rev_rotate(t_stack *stack);
 int		ft_atoi_2(const char *str);
 int		ft_is_not_int(char *str);
 size_t	ft_can_be_atoi_len(char *c);

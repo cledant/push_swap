@@ -22,7 +22,9 @@ LIBFT_PATH = ./libft
 
 SRC_NAME =	main.c ft_check_args.c ft_stack_new.c ft_atoi_2.c ft_is_not_int.c \
 			ft_can_be_atoi_len.c ft_check_same.c ft_stack_destroy.c \
-			ft_stack_fill_arg.c ft_stack_display.c ft_stack_rotate.c
+			ft_stack_fill_arg.c ft_stack_display.c ft_stack_rotate.c \
+			ft_stack_rev_rotate.c ft_stack_rotate_both.c \
+			ft_stack_rev_rotate_both.c
 
 SRC_PATH = ./srcs/
 

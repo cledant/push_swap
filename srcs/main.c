@@ -40,8 +40,8 @@ int	 main(int argc, char **argv)
 		ft_putendl_fd("Error 3", 2);
 		return (-1);
 	}
-	ft_stack_rotate(stack_a);
-	ft_stack_rotate(stack_a);
+//	ft_stack_rev_rotate(stack_a);
+//	ft_stack_rotate(stack_a);
 	ft_stack_display(stack_a);
 	ft_stack_destroy(&stack_a);
 	ft_stack_destroy(&stack_b);
