@@ -42,7 +42,11 @@ int	 main(int argc, char **argv)
 	}
 //	ft_stack_rev_rotate(stack_a);
 //	ft_stack_rotate(stack_a);
+	ft_stack_push(stack_b, stack_a);
+	ft_stack_push(stack_b, stack_a);
+	ft_stack_swap_both(stack_a, stack_b);
 	ft_stack_display(stack_a);
+	ft_stack_display(stack_b);
 	ft_stack_destroy(&stack_a);
 	ft_stack_destroy(&stack_b);
 	return (0);
