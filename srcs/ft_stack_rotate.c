@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_stack_rotate.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cledant <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/05/09 10:36:27 by cledant           #+#    #+#             */
+/*   Updated: 2016/05/09 10:37:19 by cledant          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-static inline void	ft_rotate_1(t_stack *stack, int (*tmp)[4], int i)
+static inline void		ft_rotate_1(t_stack *stack, int (*tmp)[4], int i)
 {
 	(*tmp)[2] = stack->array[i];
 	(*tmp)[3] = stack->filled[i];
@@ -10,8 +22,7 @@ static inline void	ft_rotate_1(t_stack *stack, int (*tmp)[4], int i)
 	(*tmp)[1] = (*tmp)[3];
 }
 
-
-static inline void	ft_rotate_2(t_stack *stack, int (*tmp)[4], int i)
+static inline void		ft_rotate_2(t_stack *stack, int (*tmp)[4], int i)
 {
 	(*tmp)[2] = stack->array[i];
 	(*tmp)[3] = stack->filled[i];
@@ -21,7 +32,7 @@ static inline void	ft_rotate_2(t_stack *stack, int (*tmp)[4], int i)
 	stack->filled[0] = (*tmp)[3];
 }
 
-void			ft_stack_rotate(t_stack *stack)
+void					ft_stack_rotate(t_stack *stack)
 {
 	int	i;
 	int	tmp[4];
