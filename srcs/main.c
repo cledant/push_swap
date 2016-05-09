@@ -6,7 +6,7 @@
 /*   By: cledant <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/06 10:11:13 by cledant           #+#    #+#             */
-/*   Updated: 2016/05/09 10:35:53 by cledant          ###   ########.fr       */
+/*   Updated: 2016/05/09 16:40:52 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,15 @@ int	 main(int argc, char **argv)
 	ft_stack_fill_arg(stack_a, argc, argv);
 	if (ft_check_same(stack_a) == -1)
 	{
-		free(stack_a);
+		ft_stack_destroy(&stack_a);
+		ft_stack_destroy(&stack_b);
+		ft_putendl_fd("Error", 2);
+		return (-1);
+	}
+	if (ft_sort_stack(stack_a, stack_b) == -1)
+	{
+		ft_stack_destroy(&stack_a);
+		ft_stack_destroy(&stack_b);
 		ft_putendl_fd("Error", 2);
 		return (-1);
 	}
