@@ -6,17 +6,19 @@
 /*   By: cledant <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/09 10:31:44 by cledant           #+#    #+#             */
-/*   Updated: 2016/05/09 10:41:36 by cledant          ###   ########.fr       */
+/*   Updated: 2016/05/11 10:16:11 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_stack_display(t_stack *stack)
+int		ft_stack_display(t_stack *stack)
 {
 	int	i;
 
 	i = stack->size;
+	if (stack->in == 0)
+		return (0);
 	while (i >= 0)
 	{
 		if (stack->filled[i] == 1)
@@ -31,4 +33,5 @@ void	ft_stack_display(t_stack *stack)
 		}
 		i--;
 	}
+	return (1);
 }

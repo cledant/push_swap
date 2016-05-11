@@ -1,37 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort_phase_1.c                                  :+:      :+:    :+:   */
+/*   ft_stack_display_both.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/09 13:18:55 by cledant           #+#    #+#             */
-/*   Updated: 2016/05/11 10:40:20 by cledant          ###   ########.fr       */
+/*   Created: 2016/05/11 10:24:07 by cledant           #+#    #+#             */
+/*   Updated: 2016/05/11 10:25:39 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		ft_sort_phase_1(t_stack *a, t_stack *b, int average, t_list **list)
+void	ft_stack_display_both(t_stack *a, t_stack *b)
 {
-	int		i;
-	
-	i = a->in;
-	while (i > 0)
-	{
-		if (a->array[a->in - 1] >= average)
-		{
-			if (ft_sort_phase_1_in_b(a, b, list) == -1)
-				return (-1);
-		}
-		else
-		{
-			ft_stack_rotate(a);
-			if (ft_sort_add_list("ra", 3, list) == -1)
-				return (-1);
-		}
-		i--;
-		ft_stack_display_both(a, b);
-	}
-	return (1);
+	ft_putendl("STACK A : ");
+	ft_putchar('\t');
+	if (ft_stack_display(a) == 0)
+		ft_putendl("");
+	ft_putendl("STACK B : ");
+	ft_putchar('\t');
+	if (ft_stack_display(b) == 0)
+		ft_putendl("");
 }

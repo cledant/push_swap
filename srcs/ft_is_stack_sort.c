@@ -6,7 +6,7 @@
 /*   By: cledant <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/09 11:07:43 by cledant           #+#    #+#             */
-/*   Updated: 2016/05/09 11:25:06 by cledant          ###   ########.fr       */
+/*   Updated: 2016/05/11 13:42:32 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ int		ft_is_stack_sort(t_stack *stack)
 
 	if (stack->in == 0 || stack->in == 1)
 		return (1);
-	i = stack->in - 1;
-	while (i != 1)
+	i = stack->in;
+	while (i != 2)
 	{
 		if (stack->array[i - 1] < stack->array[i - 2])
 			i--;
