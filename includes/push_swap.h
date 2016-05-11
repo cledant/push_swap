@@ -6,7 +6,7 @@
 /*   By: cledant <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/05 12:46:55 by cledant           #+#    #+#             */
-/*   Updated: 2016/05/11 10:23:03 by cledant          ###   ########.fr       */
+/*   Updated: 2016/05/11 19:42:05 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,10 @@ void			ft_stack_push(t_stack *dst, t_stack *src);
 void			ft_stack_swap(t_stack *stack);
 void			ft_stack_swap_both(t_stack *a, t_stack *b);
 int				ft_stack_average(t_stack *stack);
+int				ft_stack_min_value(t_stack *stack);
+int				ft_stack_max_value(t_stack *stack);
 int				ft_sort_stack(t_stack *a, t_stack *b);
-int				ft_sort_phase_1(t_stack *a, t_stack *b, int average,
-					t_list **list);
+int				ft_sort_phase_1(t_stack *a, t_stack *b, t_list **list);
 int				ft_sort_phase_1_in_b(t_stack *a, t_stack *b, t_list **list);
 int				ft_sort_phase_2_1(t_stack *a, t_stack *b, t_list **list);
 int				ft_sort_min_first(t_stack *stack, t_list **list);
