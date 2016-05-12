@@ -31,10 +31,7 @@ static int		ft_test(t_stack *a, t_stack *b, int way)
 				return (nb);
 			else if (a->array[a->in - 1] > val_b[1] &&
 						b->array[b->in -1] == val_b[1])
-			{
-				nb++;
 				return (nb);
-			}
 			else if (a->array[a->in - 1] < val_b[0] &&
 						b->array[b->in -1] == val_b[0])
 				return (nb);
@@ -44,6 +41,7 @@ static int		ft_test(t_stack *a, t_stack *b, int way)
 					ft_stack_rotate(b);
 				else
 					ft_stack_rev_rotate(b);
+				nb++;
 			}
 		}
 		return (nb);
@@ -67,10 +65,10 @@ int				ft_stack_r_or_rr_p1b(t_stack *a, t_stack *b)
 	value[1] = ft_test(cpy_a, cpy_b, 1);
 	ft_stack_destroy(&cpy_b);
 	ft_stack_destroy(&cpy_a);
-	ft_putendl("CB AVEC ROTATE :");
-	ft_putnbrendl(value[0]);
-	ft_putendl("CB AVEC REV_ROTATE :");
-	ft_putnbrendl(value[1]);
+//	ft_putendl("CB AVEC ROTATE :");
+//	ft_putnbrendl(value[0]);
+//	ft_putendl("CB AVEC REV_ROTATE :");
+//	ft_putnbrendl(value[1]);
 	if (value[0] >= value[1])
 		return (0);
 	else

@@ -12,16 +12,43 @@
 
 #include "push_swap.h"
 
-int		ft_sort_phase_2(t_stack *a, t_stack *b, t_list **list)
+static int		ft_test(t_stack *a, t_stack *b, int way)
 {
-	int	way;
+	int		val_a[2];
+	int		nb;
 
-	while (b->in != 0)
+	nb = 0;
+	if (a->in == 0 || a->in == 1)
+		return (nb);
+	else
 	{
-		if((way = ft_sort_r_or_rr_p21(a, b)) == -1)
-			return (-1);
-		if (ft_sort_phase_2_1(a, b, list) == - 1)
-			return (-1);
+		while (1)
+		{
+			val_a[0] = ft_stack_min_value(a);
+			val_a[1] = ft_stack_max_value(a);
+			if (b->array[b->in - 1] < a->array[a->in - 1]
+					&& b->array[b->in - 1] > a->array[0])
+				return (nb);
+			else if (b->array[b->in - 1] > val_a[1] &&
+						a->array[a->in -1] == val_a[1])
+				return (nb);
+			else if (b->array[b->in - 1] < val_a[0] &&
+						a->array[a->in -1] == val_a[0])
+				return (nb);
+			else
+			{
+				if (way == 0)
+					ft_stack_rotate(a);
+				else
+					ft_stack_rev_rotate(a);
+				nb++;
+			}
+		}
+		return (nb);
 	}
-	return (1);
+}
+
+int			ft_stack_r_or_rr_p21(t_stack *a, t_stack *b)
+{
+	t_stack
 }

@@ -14,6 +14,7 @@
 
 void	ft_stack_display_both(t_stack *a, t_stack *b)
 {
+	ft_putendl("=========================");
 	ft_putendl("STACK A : ");
 	ft_putchar('\t');
 	if (ft_stack_display(a) == 0)
