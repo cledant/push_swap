@@ -6,7 +6,7 @@
 /*   By: cledant <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/09 10:52:57 by cledant           #+#    #+#             */
-/*   Updated: 2016/05/12 13:20:09 by cledant          ###   ########.fr       */
+/*   Updated: 2016/05/12 15:14:55 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,12 @@ int		ft_sort_stack(t_stack *a, t_stack *b)
 				ft_lstdel(&list, &ft_lstfree_malloc);
 			return (-1);
 		}
-		if (ft_sort_phase_2(a, b, &list) == -1)
-		{
-			if (list != NULL)
-				ft_lstdel(&list, &ft_lstfree_malloc);
-			return (-1);
-		}
+//		if (ft_sort_phase_2(a, b, &list) == -1)
+//		{
+//			if (list != NULL)
+//				ft_lstdel(&list, &ft_lstfree_malloc);
+//			return (-1);
+//		}
 	}
 	ft_sort_min_first(a, &list);
 	ft_stack_display_both(a, b);

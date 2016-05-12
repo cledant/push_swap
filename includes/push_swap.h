@@ -6,7 +6,7 @@
 /*   By: cledant <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/05 12:46:55 by cledant           #+#    #+#             */
-/*   Updated: 2016/05/12 14:03:06 by cledant          ###   ########.fr       */
+/*   Updated: 2016/05/12 19:18:56 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct	s_stack
 
 int				ft_check_args(int argc, char **argv);
 t_stack			*ft_stack_new(int len);
+t_stack			*ft_stack_cpy(t_stack *stack);
 void			ft_stack_destroy(t_stack **stack);
 void			ft_stack_fill_arg(t_stack *stack, int argc, char **argv);
 int				ft_stack_display(t_stack *stack);
@@ -38,6 +39,7 @@ void			ft_stack_swap_both(t_stack *a, t_stack *b);
 int				ft_stack_average(t_stack *stack);
 int				ft_stack_min_value(t_stack *stack);
 int				ft_stack_max_value(t_stack *stack);
+int				ft_stack_r_or_rr_p1b(t_stack *a, t_stack *b);
 int				ft_sort_stack(t_stack *a, t_stack *b);
 int				ft_sort_phase_1(t_stack *a, t_stack *b, t_list **list);
 int				ft_sort_phase_1_in_b(t_stack *a, t_stack *b, t_list **list);
