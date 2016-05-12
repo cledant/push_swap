@@ -6,65 +6,62 @@
 /*   By: cledant <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/09 13:52:06 by cledant           #+#    #+#             */
-/*   Updated: 2016/05/12 10:57:49 by cledant          ###   ########.fr       */
+/*   Updated: 2016/05/12 13:18:20 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		ft_sort_phase_1_in_b(t_stack *a, t_stack *b, t_list **list)
+int		ft_sort_phase_2(t_stack *a, t_stack *b, t_list **list)
 {
-	int		val_b[2];
+	int		val_a[2];
 
-	if (b->in == 0 || b->in == 1)
+	if (a->in == 0 || a->in == 1)
 	{
-		ft_stack_push(b, a);
-		if (ft_sort_add_list("pb", 3, list) == -1)
+		ft_stack_push(a, b);
+		if (ft_sort_add_list("pa", 3, list) == -1)
 			return (-1);
 		ft_stack_display_both(a, b);
 		return (1);
 	}
 	else
 	{
-		while (1)
+		while (b->in != 0)
 		{
-			val_b[0] = ft_stack_min_value(b);
-			val_b[1] = ft_stack_max_value(b);
-			if (a->array[a->in - 1] < b->array[b->in - 1]
-					&& a->array[a->in - 1] > b->array[0])
+			val_a[0] = ft_stack_min_value(a);
+			val_a[1] = ft_stack_max_value(a);
+			if (b->array[b->in - 1] < a->array[a->in - 1]
+					&& b->array[b->in - 1] > a->array[0])
 			{
-				ft_stack_push(b, a);
-				if (ft_sort_add_list("pb", 3, list) == -1)
+				ft_stack_push(a, b);
+				if (ft_sort_add_list("pa", 3, list) == -1)
 					return (-1);
 				ft_stack_display_both(a, b);
-				return (1);
 			}
-			else if (a->array[a->in - 1] > val_b[1] &&
-						b->array[b->in -1] == val_b[1])
+			else if (b->array[b->in - 1] > val_a[1] &&
+						a->array[a->in -1] == val_a[1])
 			{
-				ft_stack_rotate(b);
-				if (ft_sort_add_list("rb", 3, list) == -1)
+				ft_stack_rotate(a);
+				if (ft_sort_add_list("ra", 3, list) == -1)
 					return (-1);
 				ft_stack_display_both(a, b);
-				ft_stack_push(b, a);
-				if (ft_sort_add_list("pb", 3, list) == -1)
+				ft_stack_push(a, b);
+				if (ft_sort_add_list("pa", 3, list) == -1)
 					return (-1);
 				ft_stack_display_both(a, b);
-				return (1);
 			}
-			else if (a->array[a->in - 1] < val_b[0] &&
-						b->array[b->in -1] == val_b[0])
+			else if (b->array[b->in - 1] < val_a[0] &&
+						a->array[a->in -1] == val_a[0])
 			{
-				ft_stack_push(b, a);
-				if (ft_sort_add_list("pb", 3, list) == -1)
+				ft_stack_push(a, b);
+				if (ft_sort_add_list("pa", 3, list) == -1)
 					return (-1);
 				ft_stack_display_both(a, b);
-				return (1);
 			}
 			else
 			{
-				ft_stack_rotate(b);
-				if (ft_sort_add_list("rb", 3, list) == -1)
+				ft_stack_rotate(a);
+				if (ft_sort_add_list("ra", 3, list) == -1)
 					return (-1);
 				ft_stack_display_both(a, b);
 			}

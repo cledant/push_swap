@@ -6,7 +6,7 @@
 /*   By: cledant <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/09 13:18:55 by cledant           #+#    #+#             */
-/*   Updated: 2016/05/11 20:05:52 by cledant          ###   ########.fr       */
+/*   Updated: 2016/05/12 09:43:30 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int		ft_sort_phase_1(t_stack *a, t_stack *b, t_list **list)
 			ft_stack_rotate(a);
 			if (ft_sort_add_list("ra", 3, list) == -1)
 				return (-1);
+			ft_stack_display_both(a, b);
+			i--;
 			if (ft_sort_phase_1_in_b(a, b, list) == -1)
 				return (-1);
 		}
@@ -41,10 +43,10 @@ int		ft_sort_phase_1(t_stack *a, t_stack *b, t_list **list)
 		{
 			ft_stack_rotate(a);
 			if (ft_sort_add_list("ra", 3, list) == -1)
-				return (-1);		
+				return (-1);
+			ft_stack_display_both(a, b);
 		}
 		i--;
-		ft_stack_display_both(a, b);
 	}
 	return (1);
 }
