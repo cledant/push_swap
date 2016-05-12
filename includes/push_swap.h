@@ -6,7 +6,7 @@
 /*   By: cledant <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/05 12:46:55 by cledant           #+#    #+#             */
-/*   Updated: 2016/05/12 13:12:58 by cledant          ###   ########.fr       */
+/*   Updated: 2016/05/12 14:03:06 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,9 @@
 
 typedef struct	s_stack
 {
-	int	*array;
-	int	*filled;
-	int	size;
-	int	in;
+	int			*array;
+	int			size;
+	int			in;
 }				t_stack;
 
 int				ft_check_args(int argc, char **argv);

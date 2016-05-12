@@ -6,7 +6,7 @@
 /*   By: cledant <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/09 10:33:08 by cledant           #+#    #+#             */
-/*   Updated: 2016/05/09 10:39:22 by cledant          ###   ########.fr       */
+/*   Updated: 2016/05/12 14:04:59 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,8 @@ t_stack		*ft_stack_new(int len)
 		free(new);
 		return (NULL);
 	}
-	if ((new->filled = (int *)malloc(len * sizeof(int))) == NULL)
-	{
-		free(new->array);
-		free(new);
-		return (NULL);
-	}
 	new->size = len;
 	new->in = 0;
 	ft_bzero(new->array, sizeof(int) * len);
-	ft_bzero(new->filled, sizeof(int) * len);
 	return (new);
 }
