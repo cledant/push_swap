@@ -6,7 +6,7 @@
 /*   By: cledant <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/09 10:52:57 by cledant           #+#    #+#             */
-/*   Updated: 2016/05/13 13:18:16 by cledant          ###   ########.fr       */
+/*   Updated: 2016/05/13 16:28:36 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,26 @@
 int		ft_sort_stack(t_stack *a, t_stack *b)
 {
 	t_list	*list;
+	int		sort;
 
 	list = NULL;
 	if (ft_is_stack_sort(a) == 1)
 		return (1);
+	else
+	{
+		if ((sort = ft_is_stack_sort_not_min_top(a)) == -1)
+			return (-1);
+		if (sort == 1)
+		{
+			ft_sort_min_first_a(a, b, &list);
+			ft_sort_display_list(list);
+			ft_putstr("Number of operation : ");
+			ft_putnbrendl(ft_lstcount_node(list));
+			if (list != NULL)
+				ft_lstdel(&list, &ft_lstfree_malloc);		
+			return (1);
+		}
+	}
 	if (a->in == 2)
 	{
 		ft_stack_rotate(a);
