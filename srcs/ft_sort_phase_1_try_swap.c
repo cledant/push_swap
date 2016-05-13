@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_stack_sort.c                                 :+:      :+:    :+:   */
+/*   ft_sort_phase_1_try_swap.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/09 11:07:43 by cledant           #+#    #+#             */
-/*   Updated: 2016/05/13 13:43:13 by cledant          ###   ########.fr       */
+/*   Created: 2016/05/13 11:30:06 by cledant           #+#    #+#             */
+/*   Updated: 2016/05/13 11:46:52 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		ft_is_stack_sort(t_stack *stack)
+int		ft_sort_phase_1_try_swap(t_stack *a)
 {
-	int		i;
+	t_stack		*cpy_a;
+	int			sort;
 
-	if (stack->in == 0 || stack->in == 1)
-		return (1);
-	i = stack->in;
-	while (i >= 2)
+	if ((cpy_a = ft_stack_cpy(a)) == NULL)
+		return (-1);
+	ft_stack_swap(cpy_a);
+	if ((sort = ft_is_stack_sort_not_min_top(cpy_a)) == -1)
 	{
-		if (stack->array[i - 1] < stack->array[i - 2])
-			i--;
-		else
-			return (0);
+		ft_stack_destroy(&cpy_a);
+		return (-1);
 	}
-	return (1);
+	else
+	{
+		ft_stack_destroy(&cpy_a);
+		return (sort);
+	}
 }

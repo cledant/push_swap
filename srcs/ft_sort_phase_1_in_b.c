@@ -6,7 +6,7 @@
 /*   By: cledant <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/09 13:52:06 by cledant           #+#    #+#             */
-/*   Updated: 2016/05/12 19:23:39 by cledant          ###   ########.fr       */
+/*   Updated: 2016/05/13 12:54:57 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int		ft_sort_phase_1_in_b(t_stack *a, t_stack *b, t_list **list)
 	}
 	else
 	{
-		if ((way = ft_stack_r_or_rr_p1b(a, b)) == -1)
+		if ((way = ft_sort_r_or_rr_p1b(a, b)) == -1)
 			return (-1);
 		while (1)
 		{

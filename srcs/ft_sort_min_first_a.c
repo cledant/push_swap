@@ -1,51 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort_min_first.c                                :+:      :+:    :+:   */
+/*   ft_sort_min_first_a.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/09 16:12:57 by cledant           #+#    #+#             */
-/*   Updated: 2016/05/09 19:29:11 by cledant          ###   ########.fr       */
+/*   Created: 2016/05/13 13:04:42 by cledant           #+#    #+#             */
+/*   Updated: 2016/05/13 13:05:49 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		ft_sort_min_first(t_stack *stack, t_list **list)
+int		ft_sort_min_first_a(t_stack *sort, t_stack *disp, t_list **list)
 {
 	int		min;
 	int		j;
 	int		loc;
 
 	j = 0;
-	min = stack->array[0];
+	min = sort->array[0];
 	loc = 0;
-	while (j < stack->in)
+	while (j < sort->in)
 	{
-		if (min > stack->array[j])
+		if (min > sort->array[j])
 		{
-			min = stack->array[j];
+			min = sort->array[j];
 			loc = j;
 		}
 		j++;
 	}
-	if ((stack->in - 1 - loc) < (stack->in - 1) / 2)
+	if ((sort->in - 1 - loc) < (sort->in - 1) / 2)
 	{
-		while (stack->array[stack->in - 1] != min)
+		while (sort->array[sort->in - 1] != min)
 		{
-			ft_stack_rotate(stack);
-			if (ft_sort_add_list("rb", 3, list) == -1)
+			ft_stack_rotate(sort);
+			if (ft_sort_add_list("ra", 3, list) == -1)
 				return (-1);
+			ft_stack_display_both(sort, disp);
 		}
 	}
 	else
 	{
-		while (stack->array[stack->in - 1] != min)
+		while (sort->array[sort->in - 1] != min)
 		{
-			ft_stack_rev_rotate(stack);
-			if (ft_sort_add_list("rrb", 4, list) == -1)
+			ft_stack_rev_rotate(sort);
+			if (ft_sort_add_list("rra", 4, list) == -1)
 				return (-1);
+			ft_stack_display_both(sort, disp);
 		}
 	}
 	return (1);

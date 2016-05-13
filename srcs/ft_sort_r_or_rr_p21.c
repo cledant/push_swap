@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort_phase_1_in_b.c                             :+:      :+:    :+:   */
+/*   ft_sort_r_or_rr_p21.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/09 13:52:06 by cledant           #+#    #+#             */
-/*   Updated: 2016/05/12 19:23:09 by cledant          ###   ########.fr       */
+/*   Created: 2016/05/13 12:53:24 by cledant           #+#    #+#             */
+/*   Updated: 2016/05/13 12:54:00 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,33 +14,33 @@
 
 static int		ft_test(t_stack *a, t_stack *b, int way)
 {
-	int		val_b[2];
+	int		val_a[2];
 	int		nb;
 
 	nb = 0;
-	if (b->in == 0 || b->in == 1)
-		return (0);
+	if (a->in == 0 || a->in == 1)
+		return (nb);
 	else
 	{
 		while (1)
 		{
-			val_b[0] = ft_stack_min_value(b);
-			val_b[1] = ft_stack_max_value(b);
-			if (a->array[a->in - 1] < b->array[b->in - 1]
-					&& a->array[a->in - 1] > b->array[0])
+			val_a[0] = ft_stack_min_value(a);
+			val_a[1] = ft_stack_max_value(a);
+			if (b->array[b->in - 1] < a->array[a->in - 1]
+					&& b->array[b->in - 1] > a->array[0])
 				return (nb);
-			else if (a->array[a->in - 1] > val_b[1] &&
-						b->array[b->in -1] == val_b[1])
+			else if (b->array[b->in - 1] > val_a[1] &&
+						a->array[a->in -1] == val_a[1])
 				return (nb);
-			else if (a->array[a->in - 1] < val_b[0] &&
-						b->array[b->in -1] == val_b[0])
+			else if (b->array[b->in - 1] < val_a[0] &&
+						a->array[a->in -1] == val_a[0])
 				return (nb);
 			else
 			{
 				if (way == 0)
-					ft_stack_rotate(b);
+					ft_stack_rotate(a);
 				else
-					ft_stack_rev_rotate(b);
+					ft_stack_rev_rotate(a);
 				nb++;
 			}
 		}
@@ -48,7 +48,7 @@ static int		ft_test(t_stack *a, t_stack *b, int way)
 	}
 }
 
-int				ft_stack_r_or_rr_p1b(t_stack *a, t_stack *b)
+int				ft_sort_r_or_rr_p21(t_stack *a, t_stack *b)
 {
 	t_stack		*cpy_a;
 	t_stack		*cpy_b;
@@ -59,16 +59,12 @@ int				ft_stack_r_or_rr_p1b(t_stack *a, t_stack *b)
 	if ((cpy_b = ft_stack_cpy(b)) == NULL)
 		return (-1);
 	value[0] = ft_test(cpy_a, cpy_b, 0);
-	ft_stack_destroy(&cpy_b);
-	if ((cpy_b = ft_stack_cpy(b)) == NULL)
+	ft_stack_destroy(&cpy_a);
+	if ((cpy_a = ft_stack_cpy(a)) == NULL)
 		return (-1);
 	value[1] = ft_test(cpy_a, cpy_b, 1);
-	ft_stack_destroy(&cpy_b);
 	ft_stack_destroy(&cpy_a);
-//	ft_putendl("CB AVEC ROTATE :");
-//	ft_putnbrendl(value[0]);
-//	ft_putendl("CB AVEC REV_ROTATE :");
-//	ft_putnbrendl(value[1]);
+	ft_stack_destroy(&cpy_b);
 	if (value[0] >= value[1])
 		return (0);
 	else

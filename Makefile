@@ -6,7 +6,7 @@
 #    By: cledant <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/26 10:40:13 by cledant           #+#    #+#              #
-#    Updated: 2016/05/12 19:19:36 by cledant          ###   ########.fr        #
+#    Updated: 2016/05/13 13:03:43 by cledant          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,11 +26,12 @@ SRC_NAME =	main.c ft_check_args.c ft_stack_new.c ft_atoi_2.c ft_is_not_int.c \
 			ft_stack_rev_rotate.c ft_stack_rotate_both.c \
 			ft_stack_rev_rotate_both.c ft_stack_push.c ft_stack_swap.c \
 			ft_stack_swap_both.c ft_sort_stack.c ft_is_stack_sort.c \
-			ft_stack_average.c ft_sort_phase_1.c ft_sort_phase_1_in_b.c \
-			ft_sort_min_first.c ft_sort_add_list.c ft_sort_display_list.c \
+			ft_sort_phase_1.c ft_sort_phase_1_in_b.c \
+			ft_sort_min_first_a.c ft_sort_add_list.c ft_sort_display_list.c \
 			ft_sort_phase_2.c ft_stack_display_both.c ft_stack_min_value.c \
-			ft_stack_max_value.c ft_stack_r_or_rr_p1b.c ft_stack_cpy.c \
-			ft_sort_phase_2_1.c ft_sort_r_or_rr_p21.c
+			ft_stack_max_value.c ft_sort_r_or_rr_p1b.c ft_stack_cpy.c \
+			ft_sort_phase_2_1_r.c ft_sort_r_or_rr_p21.c ft_sort_phase_2_1_rr.c \
+			ft_is_stack_sort_not_min_top.c ft_sort_phase_1_try_swap.c
 
 SRC_PATH = ./srcs/
 
