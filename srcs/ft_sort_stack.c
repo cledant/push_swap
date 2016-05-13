@@ -6,7 +6,7 @@
 /*   By: cledant <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/09 10:52:57 by cledant           #+#    #+#             */
-/*   Updated: 2016/05/13 19:31:28 by cledant          ###   ########.fr       */
+/*   Updated: 2016/05/13 19:53:27 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int		ft_sort_stack(t_stack *a, t_stack *b, int debug)
 			}
 			ft_sort_display_list(list);
 			if (list != NULL)
-				ft_lstdel(&list, &ft_lstfree_malloc);		
+				ft_lstdel(&list, &ft_lstfree_malloc);
 			return (1);
 		}
 	}
@@ -62,7 +62,7 @@ int		ft_sort_stack(t_stack *a, t_stack *b, int debug)
 		}
 	}
 	ft_sort_min_first_a(a, b, &list, debug);
-	if (debug== 1)
+	if (debug == 1)
 	{
 		ft_putstr("Number of operation : ");
 		ft_putnbrendl(ft_lstcount_node(list));

@@ -6,7 +6,7 @@
 /*   By: cledant <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/09 13:18:55 by cledant           #+#    #+#             */
-/*   Updated: 2016/05/13 19:07:15 by cledant          ###   ########.fr       */
+/*   Updated: 2016/05/13 19:47:35 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int		ft_sort_phase_1(t_stack *a, t_stack *b, t_list **list, int debug)
 {
 	int		val[2];
 	int		sort;
-	
+
 	val[0] = ft_stack_min_value(a);
 	val[1] = ft_stack_max_value(a);
 	while (a->in > 2)

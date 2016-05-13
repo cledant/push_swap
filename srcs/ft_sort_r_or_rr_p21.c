@@ -6,7 +6,7 @@
 /*   By: cledant <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/13 12:53:24 by cledant           #+#    #+#             */
-/*   Updated: 2016/05/13 12:54:00 by cledant          ###   ########.fr       */
+/*   Updated: 2016/05/13 20:13:18 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ static int		ft_test(t_stack *a, t_stack *b, int way)
 					&& b->array[b->in - 1] > a->array[0])
 				return (nb);
 			else if (b->array[b->in - 1] > val_a[1] &&
-						a->array[a->in -1] == val_a[1])
+						a->array[a->in - 1] == val_a[1])
 				return (nb);
 			else if (b->array[b->in - 1] < val_a[0] &&
-						a->array[a->in -1] == val_a[0])
+						a->array[a->in - 1] == val_a[0])
 				return (nb);
 			else
 			{

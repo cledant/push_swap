@@ -6,7 +6,7 @@
 /*   By: cledant <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/13 10:05:05 by cledant           #+#    #+#             */
-/*   Updated: 2016/05/13 19:22:16 by cledant          ###   ########.fr       */
+/*   Updated: 2016/05/13 19:51:56 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int		ft_sort_phase_2_1_r(t_stack *a, t_stack *b, t_list **list, int debug)
 				return (1);
 			}
 			else if (b->array[b->in - 1] > val_a[1] &&
-						a->array[a->in -1] == val_a[1])
+						a->array[a->in - 1] == val_a[1])
 			{
 				ft_stack_rotate(a);
 				if (ft_sort_add_list("ra", 3, list) == -1)
@@ -57,7 +57,7 @@ int		ft_sort_phase_2_1_r(t_stack *a, t_stack *b, t_list **list, int debug)
 				return (1);
 			}
 			else if (b->array[b->in - 1] < val_a[0] &&
-						a->array[a->in -1] == val_a[0])
+						a->array[a->in - 1] == val_a[0])
 			{
 				ft_stack_push(a, b);
 				if (ft_sort_add_list("pa", 3, list) == -1)
