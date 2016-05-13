@@ -6,13 +6,13 @@
 /*   By: cledant <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/09 10:52:57 by cledant           #+#    #+#             */
-/*   Updated: 2016/05/13 16:28:36 by cledant          ###   ########.fr       */
+/*   Updated: 2016/05/13 19:31:28 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		ft_sort_stack(t_stack *a, t_stack *b)
+int		ft_sort_stack(t_stack *a, t_stack *b, int debug)
 {
 	t_list	*list;
 	int		sort;
@@ -26,10 +26,13 @@ int		ft_sort_stack(t_stack *a, t_stack *b)
 			return (-1);
 		if (sort == 1)
 		{
-			ft_sort_min_first_a(a, b, &list);
+			ft_sort_min_first_a(a, b, &list, debug);
+			if (debug == 1)
+			{
+				ft_putstr("Number of operation : ");
+				ft_putnbrendl(ft_lstcount_node(list));
+			}
 			ft_sort_display_list(list);
-			ft_putstr("Number of operation : ");
-			ft_putnbrendl(ft_lstcount_node(list));
 			if (list != NULL)
 				ft_lstdel(&list, &ft_lstfree_malloc);		
 			return (1);
@@ -43,24 +46,28 @@ int		ft_sort_stack(t_stack *a, t_stack *b)
 	}
 	else
 	{
-		if (ft_sort_phase_1(a, b, &list) == -1)
+		if (ft_sort_phase_1(a, b, &list, debug) == -1)
 		{
 			if (list != NULL)
 				ft_lstdel(&list, &ft_lstfree_malloc);
 			return (-1);
 		}
-		ft_putstr("\n======END PHASE 1======\n\n");
-		if (ft_sort_phase_2(a, b, &list) == -1)
+		if (debug == 1)
+			ft_putstr("\n======END PHASE 1======\n\n");
+		if (ft_sort_phase_2(a, b, &list, debug) == -1)
 		{
 			if (list != NULL)
 				ft_lstdel(&list, &ft_lstfree_malloc);
 			return (-1);
 		}
 	}
-	ft_sort_min_first_a(a, b, &list);
+	ft_sort_min_first_a(a, b, &list, debug);
+	if (debug== 1)
+	{
+		ft_putstr("Number of operation : ");
+		ft_putnbrendl(ft_lstcount_node(list));
+	}
 	ft_sort_display_list(list);
-	ft_putstr("Number of operation : ");
-	ft_putnbrendl(ft_lstcount_node(list));
 	if (list != NULL)
 		ft_lstdel(&list, &ft_lstfree_malloc);
 	return (1);

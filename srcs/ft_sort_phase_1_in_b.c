@@ -6,13 +6,13 @@
 /*   By: cledant <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/09 13:52:06 by cledant           #+#    #+#             */
-/*   Updated: 2016/05/13 12:54:57 by cledant          ###   ########.fr       */
+/*   Updated: 2016/05/13 19:08:33 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		ft_sort_phase_1_in_b(t_stack *a, t_stack *b, t_list **list)
+int		ft_sort_phase_1_in_b(t_stack *a, t_stack *b, t_list **list, int debug)
 {
 	int		val_b[2];
 	int		way;
@@ -22,7 +22,8 @@ int		ft_sort_phase_1_in_b(t_stack *a, t_stack *b, t_list **list)
 		ft_stack_push(b, a);
 		if (ft_sort_add_list("pb", 3, list) == -1)
 			return (-1);
-		ft_stack_display_both(a, b);
+		if (debug == 1)
+			ft_stack_display_both(a, b);
 		return (1);
 	}
 	else
@@ -39,7 +40,8 @@ int		ft_sort_phase_1_in_b(t_stack *a, t_stack *b, t_list **list)
 				ft_stack_push(b, a);
 				if (ft_sort_add_list("pb", 3, list) == -1)
 					return (-1);
-				ft_stack_display_both(a, b);
+				if (debug == 1)
+					ft_stack_display_both(a, b);
 				return (1);
 			}
 			else if (a->array[a->in - 1] > val_b[1] &&
@@ -48,11 +50,13 @@ int		ft_sort_phase_1_in_b(t_stack *a, t_stack *b, t_list **list)
 				ft_stack_rotate(b);
 				if (ft_sort_add_list("rb", 3, list) == -1)
 					return (-1);
-				ft_stack_display_both(a, b);
+				if (debug == 1)
+					ft_stack_display_both(a, b);
 				ft_stack_push(b, a);
 				if (ft_sort_add_list("pb", 3, list) == -1)
 					return (-1);
-				ft_stack_display_both(a, b);
+				if (debug == 1)
+					ft_stack_display_both(a, b);
 				return (1);
 			}
 			else if (a->array[a->in - 1] < val_b[0] &&
@@ -61,7 +65,8 @@ int		ft_sort_phase_1_in_b(t_stack *a, t_stack *b, t_list **list)
 				ft_stack_push(b, a);
 				if (ft_sort_add_list("pb", 3, list) == -1)
 					return (-1);
-				ft_stack_display_both(a, b);
+				if (debug == 1)
+					ft_stack_display_both(a, b);
 				return (1);
 			}
 			else
@@ -78,7 +83,8 @@ int		ft_sort_phase_1_in_b(t_stack *a, t_stack *b, t_list **list)
 					if (ft_sort_add_list("rrb", 4, list) == -1)
 						return (-1);
 				}
-				ft_stack_display_both(a, b);
+				if (debug == 1)
+					ft_stack_display_both(a, b);
 			}
 		}
 		return (1);

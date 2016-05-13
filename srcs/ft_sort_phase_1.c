@@ -6,13 +6,13 @@
 /*   By: cledant <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/09 13:18:55 by cledant           #+#    #+#             */
-/*   Updated: 2016/05/13 13:43:23 by cledant          ###   ########.fr       */
+/*   Updated: 2016/05/13 19:07:15 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		ft_sort_phase_1(t_stack *a, t_stack *b, t_list **list)
+int		ft_sort_phase_1(t_stack *a, t_stack *b, t_list **list, int debug)
 {
 	int		val[2];
 	int		sort;
@@ -24,10 +24,7 @@ int		ft_sort_phase_1(t_stack *a, t_stack *b, t_list **list)
 		if ((sort = ft_is_stack_sort_not_min_top(a)) == -1)
 			return (-1);
 		else if (sort == 1)
-		{
-//			ft_putendl("EXIT_1");
 			return (1);
-		}
 		else
 		{
 			if ((sort = ft_sort_phase_1_try_swap(a)) == -1)
@@ -37,8 +34,8 @@ int		ft_sort_phase_1(t_stack *a, t_stack *b, t_list **list)
 				ft_stack_swap(a);
 				if (ft_sort_add_list("sa", 3, list) == -1)
 					return (-1);
-				ft_stack_display_both(a, b);
-//				ft_putendl("EXIT_2");
+				if (debug == 1)
+					ft_stack_display_both(a, b);
 				return (1);
 			}
 		}
@@ -48,14 +45,15 @@ int		ft_sort_phase_1(t_stack *a, t_stack *b, t_list **list)
 			ft_stack_rotate(a);
 			if (ft_sort_add_list("ra", 3, list) == -1)
 				return (-1);
-			ft_stack_display_both(a, b);
-			if (ft_sort_phase_1_in_b(a, b, list) == -1)
+			if (debug == 1)
+				ft_stack_display_both(a, b);
+			if (ft_sort_phase_1_in_b(a, b, list, debug) == -1)
 				return (-1);
 		}
 		else if (a->array[a->in - 1] < a->array[0] ||
 					a->array[a->in - 1] > a->array[a->in - 2])
 		{
-			if (ft_sort_phase_1_in_b(a, b, list) == -1)
+			if (ft_sort_phase_1_in_b(a, b, list, debug) == -1)
 				return (-1);
 		}
 		else
@@ -63,7 +61,8 @@ int		ft_sort_phase_1(t_stack *a, t_stack *b, t_list **list)
 			ft_stack_rotate(a);
 			if (ft_sort_add_list("ra", 3, list) == -1)
 				return (-1);
-			ft_stack_display_both(a, b);
+			if (debug == 1)
+				ft_stack_display_both(a, b);
 		}
 	}
 	return (1);

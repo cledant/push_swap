@@ -6,7 +6,7 @@
 /*   By: cledant <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/06 12:51:32 by cledant           #+#    #+#             */
-/*   Updated: 2016/05/09 10:40:48 by cledant          ###   ########.fr       */
+/*   Updated: 2016/05/13 19:43:50 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ int		ft_check_same(t_stack *stack)
 
 	i = 0;
 	j = 0;
-	while (i < stack->size)
+	while (i < stack->in)
 	{
-		while (j < stack->size)
+		while (j < stack->in)
 		{
 			if (i != j && stack->array[i] == stack->array[j])
 				return (-1);
