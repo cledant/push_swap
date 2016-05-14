@@ -6,13 +6,13 @@
 /*   By: cledant <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/15 18:05:15 by cledant           #+#    #+#             */
-/*   Updated: 2016/05/06 12:06:58 by cledant          ###   ########.fr       */
+/*   Updated: 2016/05/14 12:30:50 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static size_t	ft_number_len(char *c)
+static inline size_t	ft_number_len(char *c)
 {
 	size_t	i;
 
@@ -25,7 +25,7 @@ static size_t	ft_number_len(char *c)
 	return (i);
 }
 
-size_t			ft_can_be_atoi_len(char *c)
+size_t					ft_can_be_atoi_len(char *c)
 {
 	while (ft_isspace(*c) == 1)
 		c++;

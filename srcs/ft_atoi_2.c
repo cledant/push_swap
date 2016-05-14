@@ -6,13 +6,13 @@
 /*   By: cledant <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/24 08:27:12 by cledant           #+#    #+#             */
-/*   Updated: 2016/05/06 13:59:47 by cledant          ###   ########.fr       */
+/*   Updated: 2016/05/14 12:30:18 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int				ft_ten_pow(int power)
+static inline int				ft_ten_pow(int power)
 {
 	int counter;
 	int result;
@@ -32,7 +32,7 @@ static int				ft_ten_pow(int power)
 	}
 }
 
-static size_t			ft_strlen_digit(const char *str)
+static inline size_t			ft_strlen_digit(const char *str)
 {
 	size_t	len;
 
@@ -50,8 +50,8 @@ static size_t			ft_strlen_digit(const char *str)
 	return (len);
 }
 
-static long long int	ft_internal_atoi(const char *s, int count,
-							int s_len, long long int res)
+static inline long long int		ft_internal_atoi(const char *s, int count,
+									int s_len, long long int res)
 {
 	while (count < s_len)
 	{
@@ -75,7 +75,7 @@ static long long int	ft_internal_atoi(const char *s, int count,
 	return (res);
 }
 
-int						ft_atoi_2(const char *str)
+int								ft_atoi_2(const char *str)
 {
 	long long int		result;
 	size_t				counter;

@@ -6,13 +6,13 @@
 /*   By: cledant <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/06 11:36:48 by cledant           #+#    #+#             */
-/*   Updated: 2016/05/09 10:41:16 by cledant          ###   ########.fr       */
+/*   Updated: 2016/05/14 12:31:31 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static size_t	ft_length_nb(int nb)
+static inline size_t	ft_length_nb(int nb)
 {
 	size_t	len;
 
@@ -27,7 +27,7 @@ static size_t	ft_length_nb(int nb)
 	return (len);
 }
 
-int				ft_is_not_int(char *str)
+int						ft_is_not_int(char *str)
 {
 	size_t		len_str;
 	size_t		len_nb;

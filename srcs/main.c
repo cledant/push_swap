@@ -6,13 +6,13 @@
 /*   By: cledant <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/06 10:11:13 by cledant           #+#    #+#             */
-/*   Updated: 2016/05/13 19:41:53 by cledant          ###   ########.fr       */
+/*   Updated: 2016/05/14 12:38:02 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void		ft_exit_error(t_stack **stack_a, t_stack **stack_b)
+static inline void		ft_exit_error(t_stack **stack_a, t_stack **stack_b)
 {
 	if (*stack_a != NULL)
 		ft_stack_destroy(stack_a);
@@ -22,7 +22,7 @@ static void		ft_exit_error(t_stack **stack_a, t_stack **stack_b)
 	exit(-1);
 }
 
-int				main(int argc, char **argv)
+int						main(int argc, char **argv)
 {
 	int			check;
 	int			debug;
