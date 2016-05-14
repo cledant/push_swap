@@ -6,13 +6,71 @@
 /*   By: cledant <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/09 10:52:57 by cledant           #+#    #+#             */
-/*   Updated: 2016/05/13 19:53:27 by cledant          ###   ########.fr       */
+/*   Updated: 2016/05/14 13:07:52 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		ft_sort_stack(t_stack *a, t_stack *b, int debug)
+static inline int		ft_check_sort_order(t_stack *a, t_stack *b,
+							t_list **list, int debug)
+{
+	int		sort;
+
+	sort = 0;
+	if ((sort = ft_is_stack_sort_not_min_top(a)) == -1)
+		return (-1);
+	if (sort == 1)
+	{
+		ft_sort_min_first_a(a, b, list, debug);
+		if (debug == 1)
+		{
+			ft_putstr("Number of operation : ");
+			ft_putnbrendl(ft_lstcount_node(*list));
+		}
+		ft_sort_display_list(*list);
+		if (*list != NULL)
+			ft_lstdel(list, &ft_lstfree_malloc);
+		return (1);
+	}
+	return (0);
+}
+
+static inline int		ft_all_phases(t_stack *a, t_stack *b, t_list **list,
+							int debug)
+{
+	if (ft_sort_phase_1(a, b, list, debug) == -1)
+	{
+		if (*list != NULL)
+			ft_lstdel(list, &ft_lstfree_malloc);
+		return (-1);
+	}
+	if (debug == 1)
+		ft_putstr("\n======END PHASE 1======\n\n");
+	if (ft_sort_phase_2(a, b, list, debug) == -1)
+	{
+		if (*list != NULL)
+			ft_lstdel(list, &ft_lstfree_malloc);
+		return (-1);
+	}
+	return (0);
+}
+
+static inline void		ft_end_display(t_stack *a, t_stack *b, t_list **list,
+							int debug)
+{
+	ft_sort_min_first_a(a, b, list, debug);
+	if (debug == 1)
+	{
+		ft_putstr("Number of operation : ");
+		ft_putnbrendl(ft_lstcount_node(*list));
+	}
+	ft_sort_display_list(*list);
+	if (*list != NULL)
+		ft_lstdel(list, &ft_lstfree_malloc);
+}
+
+int						ft_sort_stack(t_stack *a, t_stack *b, int debug)
 {
 	t_list	*list;
 	int		sort;
@@ -22,21 +80,8 @@ int		ft_sort_stack(t_stack *a, t_stack *b, int debug)
 		return (1);
 	else
 	{
-		if ((sort = ft_is_stack_sort_not_min_top(a)) == -1)
-			return (-1);
-		if (sort == 1)
-		{
-			ft_sort_min_first_a(a, b, &list, debug);
-			if (debug == 1)
-			{
-				ft_putstr("Number of operation : ");
-				ft_putnbrendl(ft_lstcount_node(list));
-			}
-			ft_sort_display_list(list);
-			if (list != NULL)
-				ft_lstdel(&list, &ft_lstfree_malloc);
-			return (1);
-		}
+		if ((sort = ft_check_sort_order(a, b, &list, debug)) == -1 || sort == 1)
+			return (sort);
 	}
 	if (a->in == 2)
 	{
@@ -46,29 +91,9 @@ int		ft_sort_stack(t_stack *a, t_stack *b, int debug)
 	}
 	else
 	{
-		if (ft_sort_phase_1(a, b, &list, debug) == -1)
-		{
-			if (list != NULL)
-				ft_lstdel(&list, &ft_lstfree_malloc);
+		if (ft_all_phases(a, b, &list, debug) == -1)
 			return (-1);
-		}
-		if (debug == 1)
-			ft_putstr("\n======END PHASE 1======\n\n");
-		if (ft_sort_phase_2(a, b, &list, debug) == -1)
-		{
-			if (list != NULL)
-				ft_lstdel(&list, &ft_lstfree_malloc);
-			return (-1);
-		}
 	}
-	ft_sort_min_first_a(a, b, &list, debug);
-	if (debug == 1)
-	{
-		ft_putstr("Number of operation : ");
-		ft_putnbrendl(ft_lstcount_node(list));
-	}
-	ft_sort_display_list(list);
-	if (list != NULL)
-		ft_lstdel(&list, &ft_lstfree_malloc);
+	ft_end_display(a, b, &list, debug);
 	return (1);
 }
